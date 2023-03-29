@@ -1,0 +1,32 @@
+{
+  "name": "shaw-partners-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "teste.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node ./src/app.js",
+    "start-server": "node ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoseCarlosDeJesus/ShawPartnersBackend.git"
+  },
+  "author": "josec",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoseCarlosDeJesus/ShawPartnersBackend/issues"
+  },
+  "homepage": "https://github.com/JoseCarlosDeJesus/ShawPartnersBackend#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.16.3",
+    "octokit": "^2.0.14"
+  },
+  "devDependencies": {
+    "jest": "^29.5.0",
+    "nodemon": "^2.0.22",
+    "supertest": "^6.3.3"
+  }
+}
