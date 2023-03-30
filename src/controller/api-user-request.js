@@ -1,6 +1,6 @@
 const { Octokit} = require("octokit");
 
-const TOKEN = "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"
+const TOKEN = "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"
 
 const octokit = new Octokit({ auth: TOKEN });
 
