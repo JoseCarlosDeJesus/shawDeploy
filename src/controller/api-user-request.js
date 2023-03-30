@@ -1,23 +1,16 @@
-const { Octokit} = require("octokit");
+const { default: axios } = require('axios');
 
-const TOKEN = "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"
-
-const octokit = new Octokit({ auth: TOKEN });
 
 async function requestUsersSince(req,res){
     const {since}  = req.query;
 
-    let url = 'GET /users';
+    let url = ' https://api.github.com/users';
         
     if(since){
       url = url+'?since='+since;
     }
 
-  const data = await octokit.request(url, {
-    headers: {
-      'X-GitHub-Api-Version': '2022-11-28'
-    }
-  })
+  const data = await axios.get(url)
   .then((response)=>{
     let listUsers = response.data;
   
@@ -39,19 +32,12 @@ async function requestUsersSince(req,res){
   return data;
 }
 
-
-
 async function usernameDetails(req,res){
   const { username } = req.params;
 
-  let url = 'GET /users/' + username;
+  let url = 'https://api.github.com/users/' + username;
 
-  const data = await octokit.request(url, {
-    username: username,
-    headers: {
-      'X-GitHub-Api-Version': '2022-11-28'
-    }
-  })
+  const data = await axios.get(url)
   .then((response)=>{        
     let out = { userDetails : response.data }
 
@@ -70,14 +56,9 @@ async function usernameDetails(req,res){
 async function userRepos(req,res){
   const { username } = req.params;
 
-  let url = 'GET /users/' + username + '/repos';
+  let url = 'https://api.github.com/users/' + username + '/repos'
 
-  const data = await octokit.request(url, {
-    username: username,
-    headers: {
-      'X-GitHub-Api-Version': '2022-11-28'
-    }
-  })
+  const data = await axios.get(url)
   .then((response)=>{        
 
     let out = {
