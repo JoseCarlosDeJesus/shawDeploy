@@ -6,7 +6,7 @@ const app = express();
 
 app.use(cors());
 
-app.use(express.static("shaw-frontend"));
+app.use(express.static('shaw-frontend'));
 
 app.use(bodyParser.json());
 
